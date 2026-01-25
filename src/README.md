@@ -26,7 +26,3 @@ go run .
 cd src/frontend
 npm install
 npm run dev
-
-cd src/frontend
-npm install
-npm run dev
