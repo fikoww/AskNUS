@@ -26,3 +26,6 @@ go run .
 cd src/frontend
 npm install
 npm run dev
+
+AI Declaration:
+I used AI (ChatGPT Plus), to help me with all of the codes, and also to fix bugs in my code.
