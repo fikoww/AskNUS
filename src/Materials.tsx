@@ -23,7 +23,7 @@ export default function Materials({ course, username, role }: Props) {
   const [error, setError] = useState("");
 
   async function refresh() {
-    const res = await fetch(`http://localhost:8080/materials?course=${encodeURIComponent(course)}`);
+    const res = await fetch(`https://cvwo-production.up.railway.app/materials?course=${encodeURIComponent(course)}`);
     if (!res.ok) throw new Error("Failed to load materials");
     const raw = await res.json();
     setMaterials(Array.isArray(raw) ? raw : []);
@@ -52,7 +52,7 @@ export default function Materials({ course, username, role }: Props) {
       form.append("role", role);
       form.append("file", file);
 
-      const res = await fetch(`http://localhost:8080/materials?course=${encodeURIComponent(course)}`, {
+      const res = await fetch(`https://cvwo-production.up.railway.app/materials?course=${encodeURIComponent(course)}`, {
         method: "POST",
         body: form,
       });
@@ -92,7 +92,7 @@ export default function Materials({ course, username, role }: Props) {
             <a
               key={m.id}
               className="materialItem"
-              href={`http://localhost:8080/files/${m.file}`}
+              href={`https://cvwo-production.up.railway.app/files/${m.file}`}
               target="_blank"
               rel="noreferrer"
               style={{

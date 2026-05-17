@@ -29,7 +29,7 @@ async function updateComment(id: number) {
   if (!text) return;
 
   const res = await fetch(
-    `http://localhost:8080/comments?id=${id}&author=${encodeURIComponent(username)}`,
+    `https://cvwo-production.up.railway.app/comments?id=${id}&author=${encodeURIComponent(username)}`,
     {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
@@ -49,7 +49,7 @@ async function updateComment(id: number) {
 }
 
   async function refresh() {
-    const res = await fetch(`http://localhost:8080/comments?questionId=${questionId}`);
+    const res = await fetch(`https://cvwo-production.up.railway.app/comments?questionId=${questionId}`);
     if (!res.ok) throw new Error("Failed to load answers");
     const raw = await res.json();
     setComments(Array.isArray(raw) ? raw : []);
@@ -74,7 +74,7 @@ async function updateComment(id: number) {
 
     try {
       setError("");
-      const res = await fetch("http://localhost:8080/comments", {
+      const res = await fetch("https://cvwo-production.up.railway.app/comments", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ questionId, text, author: username, role }),
@@ -91,7 +91,7 @@ async function updateComment(id: number) {
 
   async function deleteComment(id: number) {
     const res = await fetch(
-      `http://localhost:8080/comments?id=${id}&author=${encodeURIComponent(username)}`,
+      `https://cvwo-production.up.railway.app/comments?id=${id}&author=${encodeURIComponent(username)}`,
       { method: "DELETE" }
     );
 

@@ -35,7 +35,7 @@ export default function Questions({
   async function refreshQuestions() {
     if (topicId === null) return;
 
-    const res = await fetch(`http://localhost:8080/questions?topicId=${topicId}`);
+    const res = await fetch(`https://cvwo-production.up.railway.app/questions?topicId=${topicId}`);
     const data = await res.json();
     setQuestions(Array.isArray(data) ? data : []);
   }
@@ -50,7 +50,7 @@ export default function Questions({
 
     try {
       setError("");
-      const res = await fetch("http://localhost:8080/questions", {
+      const res = await fetch("https://cvwo-production.up.railway.app/questions", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ title: text, topicId, author: username }),
@@ -71,7 +71,7 @@ export default function Questions({
     if (!text) return;
 
     const res = await fetch(
-      `http://localhost:8080/questions?id=${id}&author=${encodeURIComponent(username)}`,
+      `https://cvwo-production.up.railway.app/questions?id=${id}&author=${encodeURIComponent(username)}`,
       {
         method: "PUT",
         headers: { "Content-Type": "application/json" },

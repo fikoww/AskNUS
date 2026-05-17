@@ -19,7 +19,7 @@ export default function Topics({ onSelect, role }: Props) {
   async function loadTopics() {
     try {
       setError("");
-      const res = await fetch("http://localhost:8080/topics");
+      const res = await fetch("https://cvwo-production.up.railway.app/topics");
       const data = await res.json();
       setTopics(Array.isArray(data) ? data : []);
     } catch (err) {
@@ -37,7 +37,7 @@ export default function Topics({ onSelect, role }: Props) {
 
     try {
       setError("");
-      const res = await fetch("http://localhost:8080/topics", {
+      const res = await fetch("https://cvwo-production.up.railway.app/topics", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
