@@ -17,7 +17,7 @@ type Props = {
   role: Role;
 };
 
-export default function Comments({ questionId, course, username, role }: Props) {
+export default function Comments({ questionId, username, role }: Props) {
   const [comments, setComments] = useState<Comment[]>([]);
   const [newComment, setNewComment] = useState("");
   const [error, setError] = useState("");
