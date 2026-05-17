@@ -222,8 +222,7 @@ export default function Login({ onLogin }: Props) {
               lineHeight: 1.5,
             }}
           >
-            This is a demo login (CVWO style). Later you can replace this with
-            real auth.
+           
           </div>
         </div>
       </div>
