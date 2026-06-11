@@ -413,6 +413,11 @@ func main() {
 		}
 	})
 
-	log.Println("Backend running at https://cvwo-production.up.railway.app")
-	log.Fatal(http.ListenAndServe(":8080", mux))
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+
+	log.Println("Backend running on port", port)
+	log.Fatal(http.ListenAndServe(":"+port, mux))
 }
